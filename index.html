@@ -11,43 +11,74 @@
     <link href="https://fonts.googleapis.com/css?family=Kalam|Permanent+Marker|Sriracha&display=swap" rel="stylesheet">
     <!-- My CSS -->
     <link rel="stylesheet" href="assets/css/style.css" type="text/css" />
-    <title>Farmyard Memory Game</title>
+    <title>Simon Game</title>
 </head>
 
 <body class="background">
     <main class="container-fluid">
-        <!-- Header -->
+    <!-- Header -->
 
         <header class="header-container" id="header_section">
             <section class="text-center bring-front">
-                <h1 class="header">Farmyard Memory Game</h1>
+                <h1 class="header">Simon</h1>
             </section>
         </header>
 
-        <!-- Control buttons -->
-        <section class="buttons-section">
-            <div class="row">
-                <div class="col-12 col-md-3" id="count">
+    <!-- Game Section -->
+        <section class="game-section">
+            <div class="game-container" id="game_area">
+                <div class="game-button" id="button-blue">
                 </div>
-                <div class="col-12 col-md-3" id="start">
+                <div class="game-button" id="button-red">
                 </div>
-                <div class="col-12 col-md-3">
+                <div class="game-button" id="button-green">
                 </div>
-                <div class="col-12 col-md-3" id="strict_mode">
+                <div class="game-button" id="button-yellow">
                 </div>
-                <div class="col-12 col-md-3" id="on_off">
-                </div>
-            </div>
-        </section>
-
-        <!-- Game Section -->
-        <section class="game-container">
-            <div class="row">
-                <div class="col-12 col-md-8 offset-md-2" id="game_area">
+                <div id="center">
+                    <div id="count">
+                        <div id="count-display">
+                            <div id="display-text">
+                             --
+                            </div>
+                        </div>
+                        <div id="count-text">
+                        Count
+                        </div>
+                    </div>
+                    <div id="start">
+                        <div id="start-button">
+                        </div>
+                        <div id="start-text">
+                        Start
+                        </div>
+                    </div>
+                    <div id="strict">
+                        <div id="strict-button">
+                        </div>
+                        <div id="strict-text">
+                        Strict Mode
+                        </div>
+                    </div>
+                    <div id="on_off">
+                        <div id="on-text">
+                        ON
+                        </div>
+                        <div id="on-off-switch">
+                            <div id="button-on">
+                            </div>
+                            <div id="button-off">
+                            </div>
+                        </div>
+                        <div id="off-text">
+                        OFF
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
     </main>
+
      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" 
     crossorigin="anonymous"></script>
