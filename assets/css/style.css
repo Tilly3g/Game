@@ -1,0 +1,21 @@
+
+.background {
+    background-image: url("../images/nature.png");
+    height: 100vh;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/*----------------------------------------------------------------------------------------- Header ---*/
+
+.bring-front {
+    z-index: 1;
+}
+
+.header-container {
+
+}
