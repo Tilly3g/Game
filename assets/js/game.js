@@ -6,6 +6,7 @@ let playLights;
 let compOrder = [];
 let compTurn
 let playerOrder = [];
+let playerTurn
 let level;
 let playerCorrect;
 let win;
@@ -23,17 +24,17 @@ const yellowButton = document.getElementById("button-yellow")
 
 //controls - game on/off
 onOff.addEventListener('click', (event) => {
-    if (on == false) {
+    if (on === false) {
         on = true;
         $("#button-on").css("visibility", "visible");
         $("#button-off").css("visibility", "hidden");
         countDisplay.innerHTML = ("--");
-    } else if (on = true) {
+    } else if (on === true) {
         on = false;
         $("#button-on").css("visibility", "hidden");
         $("#button-off").css("visibility", "visible");
         countDisplay.innerHTML = ("");
-        //noLights();
+        noLights();
         clearInterval();
     }
 });
@@ -43,7 +44,7 @@ strictButton.addEventListener('click', function() {
     if (strict == false) {
         strict = true;
         strictButton.style.background = '#0d9e1f';
-    } else if (strict = true) {
+    } else if (strict == true) {
         strict = false;
         strictButton.style.background = '#e7ea09';
     }
@@ -51,12 +52,12 @@ strictButton.addEventListener('click', function() {
 
 //start button
 startButton.addEventListener('click', function() {
-    if (on == true || win == true) {
+    if (on === true || win === true) {
         run();
     }
 })
 
-//Game play functionality
+//Game play functions - computer
 function run() {
     level = 1;
     countDisplay.innerHTML = 1;
@@ -68,28 +69,24 @@ function run() {
         compOrder.push(Math.floor(Math.random() * 4) + 1);
     }
     compTurn = true;
-    console.log(compOrder)
     lightInterval = setInterval(lightUp, 1000)
 }
 
 function lightUp() {
-
-    if (compTurn == true) {
-        on = false;
-        //noLights();
+    if (playLights == level) {
+        compTurn = false;
+        playerTurn = true
+        noLights();
+    }
+    if (compTurn === true) {
+        noLights();
         setTimeout(function() {
             if (compOrder[playLights] == 1) blue();
             if (compOrder[playLights] == 2) red();
             if (compOrder[playLights] == 3) green();
             if (compOrder[playLights] == 4) yellow();
             playLights++;
-        }, 500);
-    }
-
-    if (playLights == level) {
-        on = true;
-        compTurn = false;
-        //noLights();
+        }, 250);
     }
 }
 
@@ -108,3 +105,12 @@ function green() {
 function yellow() {
     yellowButton.style.background = '#fdff50';
 }
+
+function noLights() {
+    blueButton.style.background = '#2136d2';
+    redButton.style.background = '#e60303';
+    greenButton.style.background = '#0d9e1f';
+    yellowButton.style.background = '#e7ea09';
+}
+
+// Game functions - Player
