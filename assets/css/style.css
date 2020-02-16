@@ -35,6 +35,10 @@ padding-top: 2.5%;
     font-size: 15px;
 }
 
+.button-pressed {
+    opacity: 0.5;
+}
+
 #count {
     vertical-align: top center;
     display: inline-block;
