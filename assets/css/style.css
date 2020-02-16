@@ -35,10 +35,6 @@ padding-top: 2.5%;
     font-size: 15px;
 }
 
-.button-pressed {
-    opacity: 0.5;
-}
-
 #count {
     vertical-align: top center;
     display: inline-block;
@@ -60,10 +56,6 @@ padding-top: 2.5%;
     margin-top: 15px;
 }
 
-#count-text {
-    
-}
-
 #start {
     vertical-align: top;
     display: inline-block;
@@ -81,10 +73,6 @@ padding-top: 2.5%;
     margin-left: 26px;
 }
 
-#start-text {
-    
-}
-
 #strict {
     vertical-align: top;
     display: inline-block;
@@ -100,10 +88,6 @@ padding-top: 2.5%;
     border: solid 2px #000000;
     background: #e7ea09;
     margin-left: 26px;
-}
-
-#strict-text {
-  
 }
 
 #on-text {
