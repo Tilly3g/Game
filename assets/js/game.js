@@ -9,7 +9,7 @@ let playerOrder = [];
 let playerTurn
 let level;
 let playerCorrect;
-let win;
+let win = false
 let lightInterval;
 
 //constants from html
@@ -35,7 +35,7 @@ onOff.addEventListener('click', (event) => {
         $("#button-off").css("visibility", "visible");
         countDisplay.innerHTML = ("");
         noLights();
-        clearInterval();
+        clearInterval(lightInterval);
     }
 });
 
@@ -52,7 +52,8 @@ strictButton.addEventListener('click', function() {
 
 //start button
 startButton.addEventListener('click', function() {
-    if (on === true || win === true) {
+    if (on == true) {
+        win = false
         run();
     }
 })
@@ -64,6 +65,7 @@ function run() {
     compOrder = [];
     playerOrder = [];
     playLights = 0;
+    lightInterval = 0;
     playerCorrect = true;
     for (var i = 0; i < 20; i++) {
         compOrder.push(Math.floor(Math.random() * 4) + 1);
@@ -75,10 +77,11 @@ function run() {
 function lightUp() {
     if (playLights == level) {
         compTurn = false;
-        playerTurn = true
+        playerTurn = true;
         noLights();
     }
-    if (compTurn === true) {
+    if (compTurn == true) {
+        playerTurn = false
         noLights();
         setTimeout(function() {
             if (compOrder[playLights] == 1) blue();
@@ -114,3 +117,51 @@ function noLights() {
 }
 
 // Game functions - Player
+
+blueButton.addEventListener('click', function() {
+    if (playerTurn == true) {
+        playerOrder.push(1);
+        blue();
+        //checkLevel();
+        setTimeout(function() {
+            noLights()
+        }, 500)
+    }
+})
+
+redButton.addEventListener('click', function() {
+    if (playerTurn == true) {
+        playerOrder.push(2);
+        red();
+        //checkLevel();
+        setTimeout(function() {
+            noLights()
+        }, 500)
+    }
+})
+
+greenButton.addEventListener('click', function() {
+    if (playerTurn == true) {
+        playerOrder.push(3);
+        green();
+        //checkLevel();
+        setTimeout(function() {
+            noLights()
+        }, 500)
+    }
+})
+
+yellowButton.addEventListener('click', function() {
+    if (playerTurn == true) {
+        playerOrder.push(4);
+        yellow();
+        //checkLevel();
+        setTimeout(function() {
+            noLights()
+        }, 500)
+    }
+})
+
+//function checkLevel() {
+    //if (playerOrder ==)
+//}
