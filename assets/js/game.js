@@ -1,16 +1,16 @@
 //variables
-let on = false;
-let strict = false;
-let sound = true
-let playLights;
-let compOrder = [];
-let compTurn
-let playerOrder = [];
-let playerTurn
-let level;
-let playerCorrect;
-let win = false
-let lightInterval;
+var on = false;
+var strict = false;
+var sound = true
+var playLights;
+var compOrder = [];
+var compTurn
+var playerOrder = [];
+var playerTurn;
+var level;
+var playerCorrect;
+var win = false
+var lightInterval;
 
 //constants from html
 const countDisplay = document.getElementById("display-text");
@@ -23,16 +23,17 @@ const greenButton = document.getElementById("button-green")
 const yellowButton = document.getElementById("button-yellow")
 
 //controls - game on/off
-onOff.addEventListener('click', (event) => {
-    if (on === false) {
+onOff.addEventListener('click', function() {
+    if (!on) {
         on = true;
-        $("#button-on").css("visibility", "visible");
-        $("#button-off").css("visibility", "hidden");
+        playerTurn = false;
+        document.getElementById("button-on").style.visibility = 'visible';
+        document.getElementById("button-off").style.visibility = 'hidden';
         countDisplay.innerHTML = ("--");
-    } else if (on === true) {
+    } else if (on) {
         on = false;
-        $("#button-on").css("visibility", "hidden");
-        $("#button-off").css("visibility", "visible");
+        document.getElementById("button-on").style.visibility = 'hidden';
+        document.getElementById("button-off").style.visibility = 'visible';
         countDisplay.innerHTML = ("");
         noLights();
         clearInterval(lightInterval);
@@ -41,10 +42,10 @@ onOff.addEventListener('click', (event) => {
 
 //strict button
 strictButton.addEventListener('click', function() {
-    if (strict == false) {
+    if (!strict) {
         strict = true;
         strictButton.style.background = '#0d9e1f';
-    } else if (strict == true) {
+    } else if (strict) {
         strict = false;
         strictButton.style.background = '#e7ea09';
     }
@@ -52,7 +53,7 @@ strictButton.addEventListener('click', function() {
 
 //start button
 startButton.addEventListener('click', function() {
-    if (on == true) {
+    if (on) {
         win = false
         run();
     }
@@ -71,23 +72,30 @@ function run() {
         compOrder.push(Math.floor(Math.random() * 4) + 1);
     }
     compTurn = true;
-    lightInterval = setInterval(lightUp, 1000)
+    lightInterval = setInterval(lightUp, 1000);
 }
 
 function lightUp() {
     if (playLights == level) {
         compTurn = false;
+        noLights();
         playerTurn = true;
+    } if (compTurn) {
+        playerTurn = false;
         noLights();
-    }
-    if (compTurn == true) {
-        playerTurn = false
-        noLights();
-        setTimeout(function() {
-            if (compOrder[playLights] == 1) blue();
-            if (compOrder[playLights] == 2) red();
-            if (compOrder[playLights] == 3) green();
-            if (compOrder[playLights] == 4) yellow();
+        setTimeout(() => {
+            if (compOrder[playLights] == 1) { 
+                blue();
+            }
+            if (compOrder[playLights] == 2) {
+                red();
+            }
+            if (compOrder[playLights] == 3) {
+                green();
+            }
+            if (compOrder[playLights] == 4) {
+                yellow();
+            }
             playLights++;
         }, 250);
     }
@@ -116,52 +124,57 @@ function noLights() {
     yellowButton.style.background = '#e7ea09';
 }
 
-// Game functions - Player
-
+//Game functions - player
 blueButton.addEventListener('click', function() {
-    if (playerTurn == true) {
-        playerOrder.push(1);
+    if (playerTurn) {
         blue();
-        //checkLevel();
-        setTimeout(function() {
-            noLights()
-        }, 500)
+        playerOrder.push(1);
+        checkLevel();
+        setTimeout(noLights(), 1000);
     }
 })
 
 redButton.addEventListener('click', function() {
-    if (playerTurn == true) {
+    if (playerTurn) {
         playerOrder.push(2);
         red();
-        //checkLevel();
-        setTimeout(function() {
-            noLights()
-        }, 500)
+        checkLevel();
+        setTimeout(noLights(), 1000);
     }
 })
 
 greenButton.addEventListener('click', function() {
-    if (playerTurn == true) {
+    if (playerTurn) {
         playerOrder.push(3);
         green();
-        //checkLevel();
-        setTimeout(function() {
-            noLights()
-        }, 500)
+        checkLevel();
+        setTimeout(noLights(), 1000);
     }
 })
 
 yellowButton.addEventListener('click', function() {
-    if (playerTurn == true) {
+    if (playerTurn) {
         playerOrder.push(4);
         yellow();
-        //checkLevel();
-        setTimeout(function() {
-            noLights()
-        }, 500)
+        checkLevel();
+        setTimeout(noLights(), 1000);
     }
 })
 
-//function checkLevel() {
-    //if (playerOrder ==)
-//}
+function checkLevel() {
+    if (playerOrder[playerOrder.length - 1] !== compOrder[compOrder.length -1]) {
+        playerCorrect = false;
+    } if (playerOrder.length == compOrder.length && playerCorrect) {
+        win = true;
+        //playerWon();
+    }
+
+    if (playerCorrect && !win) {
+        level++
+        countDisplay.innerHTML = level;
+        playerOrder = [];
+        playLights = 0;
+        compTurn = true;
+        lightInterval = setInterval(lightUp, 1000);
+    }
+}
