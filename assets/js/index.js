@@ -50,6 +50,7 @@ strictButton.addEventListener('click', function() {
 //Start button
 startButton.addEventListener('click', function() {
     if (on) {
+        resetLights();
         compArray = [];
         playerArray = [];
         playerTurn = false;
@@ -57,7 +58,7 @@ startButton.addEventListener('click', function() {
         level = 1;
         countDisplay.innerText = 1;
         count = 0;
-        for (i = 0; i < 20; i++) {
+        for (i = 0; i < 5; i++) {
             compArray.push(Math.floor(Math.random() * 4) + 1)
         }
     console.log(compArray);
@@ -133,7 +134,7 @@ yellowButton.addEventListener('click', function() {
     if (playerTurn && on) {
         playerArray.push(4);
         yellowButton.style.background = '#fdff50';
-        setTimeout(resetLights, 500);
+        setTimeout(resetLights, 200);
         levelCheck();
     }
 });
@@ -144,13 +145,13 @@ function levelCheck() {
     if (playerArray[playerArray.length - 1] !== compArray[playerArray.length - 1]) {
         playerCorrect = false;
         countDisplay.innerText = '!';
-        setTimeout(incorrect, 500);
+        setTimeout(incorrect, 800);
     }
     if (playerArray.length === compArray.length && playerCorrect) {
         win = true;
-        //playerWon();
+        setTimeout(playerWon, 500);
     }
-    if (playerArray.length === level && playerCorrect) {
+    else if (playerArray.length === level && playerCorrect) {
         level++;
         countDisplay.innerText = level;
         playerArray = [];
@@ -166,4 +167,25 @@ function incorrect() {
         countDisplay.innerText = level;
         playGame()
     }
+    if (strict) {
+        playerArray = [];
+        compArray = [];
+        for (i = 0; i < 5; i++) {
+            compArray.push(Math.floor(Math.random() * 4) + 1)
+        }
+        playerTurn = false;
+        level = 1;
+        countDisplay.innerText = level;
+        playGame();
+    }
+}
+
+function playerWon() {
+    countDisplay.innerText = 'WIN';
+    blueButton.style.background = '#223cff';
+    redButton.style.background = '#ff3131';
+    greenButton.style.background = '#0bd224';
+    yellowButton.style.background = '#fdff50';
+    playerTurn = false;
+    playerCorrect = false;
 }
