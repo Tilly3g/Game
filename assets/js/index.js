@@ -1,15 +1,15 @@
 //Variables
-var start;
+var count;
 var on = false;
 var strict = false;
 var compArray = [];
 var playerArray = [];
-var compTurn;
 var playerTurn;
 var countDisplay = document.getElementById('display-text');
 var level;
 var win;
 var lightUp;
+var playerCorrect;
 
 //Buttons
 var onToggle = document.getElementById('on-off-switch');
@@ -52,11 +52,11 @@ startButton.addEventListener('click', function() {
     if (on) {
         compArray = [];
         playerArray = [];
-        compTurn = true;
+        playerCorrect = true;
         playerTurn = false;
         win = false;
         level = 1;
-        countDisplay.innerText = level;
+        countDisplay.innerText = 1;
         count = 0;
         for (i = 0; i < 20; i++) {
             compArray.push(Math.floor(Math.random() * 4) + 1)
@@ -98,41 +98,62 @@ function player() {
     clearInterval(lightUp);
     compTurn = false;
     playerTurn =  true;
+    count = 0;
 }
 
 //Player button presses
 blueButton.addEventListener('click', function() {
     if (playerTurn && on) {
+        playerArray.push(1);
         blueButton.style.background = '#223cff';
-        playerArray.push[1];
         setTimeout(resetLights, 500);
-        //levelCheck();
+        levelCheck();
     }
 });
 
 redButton.addEventListener('click', function() {
     if (playerTurn && on) {
+        playerArray.push(2);
         redButton.style.background = '#ff3131';
-        playerArray.push[2];
         setTimeout(resetLights, 500);
-        //levelCheck();
+        levelCheck();
     }
 });
 
 greenButton.addEventListener('click', function() {
     if (playerTurn && on) {
+        playerArray.push(3);
         greenButton.style.background = '#0bd224';
-        playerArray.push[3];
         setTimeout(resetLights, 500);
-        //levelCheck();
+        levelCheck();
     }
 });
 
 yellowButton.addEventListener('click', function() {
     if (playerTurn && on) {
+        playerArray.push(4);
         yellowButton.style.background = '#fdff50';
-        playerArray.push[4];
         setTimeout(resetLights, 500);
-        //levelCheck();
+        levelCheck();
     }
 });
+
+//Checking to see if player is correct/incorrect/won
+function levelCheck() {
+    console.log(playerArray)
+    if (playerArray[playerArray.length - 1] !== compArray[playerArray.length - 1]) {
+        playerCorrect = false;
+        //incorrect();
+    }
+    if (playerArray.length === compArray.length && playerCorrect) {
+        win = true;
+        //playerWon();
+    }
+    if (playerArray.length === level && playerCorrect) {
+        level++;
+        countDisplay.innerText = level;
+        playerArray = [];
+        playerTurn = false;
+        playGame();
+    }
+}
