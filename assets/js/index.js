@@ -52,7 +52,6 @@ startButton.addEventListener('click', function() {
     if (on) {
         compArray = [];
         playerArray = [];
-        playerCorrect = true;
         playerTurn = false;
         win = false;
         level = 1;
@@ -68,6 +67,7 @@ startButton.addEventListener('click', function() {
 
 //Game play function
 function playGame() {
+    playerCorrect = true;
     lightUp = setInterval(function() {
         if (compArray[count] === 1) {
             blueButton.style.background = '#223cff';
@@ -143,7 +143,8 @@ function levelCheck() {
     console.log(playerArray)
     if (playerArray[playerArray.length - 1] !== compArray[playerArray.length - 1]) {
         playerCorrect = false;
-        //incorrect();
+        countDisplay.innerText = '!';
+        setTimeout(incorrect, 500);
     }
     if (playerArray.length === compArray.length && playerCorrect) {
         win = true;
@@ -155,5 +156,14 @@ function levelCheck() {
         playerArray = [];
         playerTurn = false;
         playGame();
+    }
+}
+
+function incorrect() {
+    if (!strict) {
+        playerArray = [];
+        playerTurn = false;
+        countDisplay.innerText = level;
+        playGame()
     }
 }
