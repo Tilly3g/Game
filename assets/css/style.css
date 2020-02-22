@@ -148,14 +148,13 @@ padding-top: 2.5%;
     margin-top: 5%;
     border: solid 1px #000000;
     background-color: #70533e;
-}
+    }
 
 .game-button {
 	position:absolute;
 	width:200px;
 	height:200px;
     margin: 20px;
-    pointer-events: none;
 }
 
 #center {

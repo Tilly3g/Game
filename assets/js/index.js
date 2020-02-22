@@ -68,25 +68,22 @@ startButton.addEventListener('click', function() {
 
 //Game play function
 function playGame() {
-        playerTurn = false;
-        lightUp = setInterval(function() {
-            if (compArray[count] === 1) {
-                blueButton.style.background = '#223cff';
-            } if (compArray[count] === 2) {
-                redButton.style.background =  '#ff3131';
-            } if (compArray[count]=== 3) {
-                greenButton.style.background = '#0bd224';
-            } if (compArray[count] === 4) {
-                yellowButton.style.background = '#fdff50';
-            } 
-            count++;
-            setTimeout(resetLights, 1000)
-            if (count === level) {
-                compTurn = false;
-                clearInterval(lightUp)
-                playerTurn = true;
-            }
-        }, 1200)
+    lightUp = setInterval(function() {
+        if (compArray[count] === 1) {
+            blueButton.style.background = '#223cff';
+        } if (compArray[count] === 2) {
+            redButton.style.background = '#ff3131';
+        } if (compArray[count]=== 3) {
+            greenButton.style.background = '#0bd224';
+        } if (compArray[count] === 4) {
+            yellowButton.style.background = '#fdff50';
+        } 
+        count++;
+        setTimeout(resetLights, 1000)
+        if (count === level) {
+            player();
+        }
+    }, 1200)
 }
 
 //Clear flashed light
@@ -96,3 +93,46 @@ function resetLights() {
     greenButton.style.background = '#0d9e1f';
     yellowButton.style.background = '#e7ea09';
 }
+
+function player() {
+    clearInterval(lightUp);
+    compTurn = false;
+    playerTurn =  true;
+}
+
+//Player button presses
+blueButton.addEventListener('click', function() {
+    if (playerTurn && on) {
+        blueButton.style.background = '#223cff';
+        playerArray.push[1];
+        setTimeout(resetLights, 500);
+        //levelCheck();
+    }
+});
+
+redButton.addEventListener('click', function() {
+    if (playerTurn && on) {
+        redButton.style.background = '#ff3131';
+        playerArray.push[2];
+        setTimeout(resetLights, 500);
+        //levelCheck();
+    }
+});
+
+greenButton.addEventListener('click', function() {
+    if (playerTurn && on) {
+        greenButton.style.background = '#0bd224';
+        playerArray.push[3];
+        setTimeout(resetLights, 500);
+        //levelCheck();
+    }
+});
+
+yellowButton.addEventListener('click', function() {
+    if (playerTurn && on) {
+        yellowButton.style.background = '#fdff50';
+        playerArray.push[4];
+        setTimeout(resetLights, 500);
+        //levelCheck();
+    }
+});
