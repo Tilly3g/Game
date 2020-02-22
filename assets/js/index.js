@@ -9,6 +9,7 @@ var playerTurn;
 var countDisplay = document.getElementById('display-text');
 var level;
 var win;
+var lightUp;
 
 //Buttons
 var onToggle = document.getElementById('on-off-switch');
@@ -31,6 +32,7 @@ onToggle.addEventListener('click', function () {
         document.getElementById('button-on').style.visibility = 'hidden';
         document.getElementById('button-off').style.visibility = 'visible';
         countDisplay.innerText = '';
+        clearInterval(lightUp)
     }
 })
 
@@ -47,16 +49,50 @@ strictButton.addEventListener('click', function() {
 
 //Start button
 startButton.addEventListener('click', function() {
-    compArray = [];
-    playerArray = [];
-    compTurn = true;
-    playerTurn = false;
-    win = false;
-    level = 1;
-    countDisplay.innerText = level;
-    count = 0;
-    for (i = 0; i < 20; i++) {
-        compArray.push(Math.floor(Math.random() * 4) + 1)
+    if (on) {
+        compArray = [];
+        playerArray = [];
+        compTurn = true;
+        playerTurn = false;
+        win = false;
+        level = 1;
+        countDisplay.innerText = level;
+        count = 0;
+        for (i = 0; i < 20; i++) {
+            compArray.push(Math.floor(Math.random() * 4) + 1)
+        }
+    console.log(compArray);
+    playGame();
     }
-    console.log(compArray)
 })
+
+//Game play function
+function playGame() {
+        playerTurn = false;
+        lightUp = setInterval(function() {
+            if (compArray[count] === 1) {
+                blueButton.style.background = '#223cff';
+            } if (compArray[count] === 2) {
+                redButton.style.background =  '#ff3131';
+            } if (compArray[count]=== 3) {
+                greenButton.style.background = '#0bd224';
+            } if (compArray[count] === 4) {
+                yellowButton.style.background = '#fdff50';
+            } 
+            count++;
+            setTimeout(resetLights, 1000)
+            if (count === level) {
+                compTurn = false;
+                clearInterval(lightUp)
+                playerTurn = true;
+            }
+        }, 1200)
+}
+
+//Clear flashed light
+function resetLights() {
+    blueButton.style.background = '#2136d2';
+    redButton.style.background =  '#e60303';
+    greenButton.style.background = '#0d9e1f';
+    yellowButton.style.background = '#e7ea09';
+}
