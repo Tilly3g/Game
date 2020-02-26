@@ -17,13 +17,17 @@
 }
 
 .header-container {
-padding-top: 2.5%;
+    padding-top: 2.5%;
 }
 
 .header {
     font-family: "Sriracha", sans-serif;
     color: #f3f720;
     font-size: 45px;
+}
+
+.audioHide {
+    visibility: hidden;
 }
 
 /*---------------------------------------------------------------------------------------- Controls ---*/

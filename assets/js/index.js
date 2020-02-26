@@ -19,6 +19,10 @@ var blueButton = document.getElementById('button-blue');
 var redButton = document.getElementById('button-red');
 var greenButton = document.getElementById('button-green');
 var yellowButton = document.getElementById('button-yellow');
+var blueBeep = document.getElementById('blueBeep');
+var redBeep = document.getElementById('redBeep');
+var greenBeep = document.getElementById('greenBeep');
+var yellowBeep = document.getElementById('yellowBeep');
 
 //On toggle
 onToggle.addEventListener('click', function () {
@@ -33,6 +37,7 @@ onToggle.addEventListener('click', function () {
         document.getElementById('button-off').style.visibility = 'visible';
         countDisplay.innerText = '';
         clearInterval(lightUp)
+        resetLights();
     }
 })
 
@@ -72,12 +77,16 @@ function playGame() {
     lightUp = setInterval(function() {
         if (compArray[count] === 1) {
             blueButton.style.background = '#223cff';
+            blueBeep.play();
         } if (compArray[count] === 2) {
             redButton.style.background = '#ff3131';
+            redBeep.play();
         } if (compArray[count]=== 3) {
             greenButton.style.background = '#0bd224';
+            greenBeep.play();
         } if (compArray[count] === 4) {
             yellowButton.style.background = '#fdff50';
+            yellowBeep.play();
         } 
         count++;
         setTimeout(resetLights, 1000)
@@ -97,7 +106,6 @@ function resetLights() {
 
 function player() {
     clearInterval(lightUp);
-    compTurn = false;
     playerTurn =  true;
     count = 0;
 }
@@ -106,6 +114,7 @@ function player() {
 blueButton.addEventListener('click', function() {
     if (playerTurn && on) {
         playerArray.push(1);
+        blueBeep.play();
         blueButton.style.background = '#223cff';
         setTimeout(resetLights, 500);
         levelCheck();
@@ -115,6 +124,7 @@ blueButton.addEventListener('click', function() {
 redButton.addEventListener('click', function() {
     if (playerTurn && on) {
         playerArray.push(2);
+        redBeep.play();
         redButton.style.background = '#ff3131';
         setTimeout(resetLights, 500);
         levelCheck();
@@ -124,6 +134,7 @@ redButton.addEventListener('click', function() {
 greenButton.addEventListener('click', function() {
     if (playerTurn && on) {
         playerArray.push(3);
+        greenBeep.play();
         greenButton.style.background = '#0bd224';
         setTimeout(resetLights, 500);
         levelCheck();
@@ -133,6 +144,7 @@ greenButton.addEventListener('click', function() {
 yellowButton.addEventListener('click', function() {
     if (playerTurn && on) {
         playerArray.push(4);
+        yellowBeep.play();
         yellowButton.style.background = '#fdff50';
         setTimeout(resetLights, 200);
         levelCheck();
