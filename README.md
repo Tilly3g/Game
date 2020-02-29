@@ -1,35 +1,22 @@
-<img src="https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png" style="margin: 0;">
+# Simon Game
 
-Welcome Tilly3g,
+This is a website where a user can go to play an online version of the Simon game. It has all functionalities including
+a power button and a strict mode. 
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. You can safely delete this README.md file, or change it for your own project.
+Users can ply this game any time and anywhere as it is mobile freindly. It is a fun way to pass the time and well as testing
+the users memory.
 
-## Gitpod Reminders
+## UX
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The Simon game is a memory game where the computer will play a random sequence of light flashes, each with their own sound,
+and then the user has to repeat them in the correct order. The game is placed in the middle of the screen and presented 
+similarly to how the original Simon game looks making it easy for anyone who has played before to know what to do.
 
-`python3 -m http.server`
+The buttons are all clearly labled with what they do so it is easy for a new user to work out what will happen with each button
+they press. There is an on/off toggle, a start button and a strict button. The other buttons won't work if the on/off toggle is
+switched to the 'off' position and when you first go to the game it will be off to begin with. Simply clicking on this toggle 
+will move it to the 'on' position and the level display will go from being blank to showing '--', making it obvious to the user
+that the game is switched on. All they then need to do is press the 'Start' button and the game will begin.
 
-A blue button should appear to click: *Expose*,
-
-Another blue button should appear to click: *Open Browser*.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: *Expose*,
-
-Another blue button should appear to click: *Open Browser*.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the backend lessons.
-
-## Updates Since The Instructional Video
-
-We continually tweak and adjust this template to help give you the best experience. Here are the updates since the original video was made:
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
---------
-
-Happy coding!
+There is also a strict button which will light up green when it is enabled, making it easy for the user to know if strict mode 
+is on or off.

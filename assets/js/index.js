@@ -1,5 +1,4 @@
 //Variables
-var count;
 var on = false;
 var strict = false;
 var compArray = [];
@@ -7,6 +6,7 @@ var playerArray = [];
 var playerTurn;
 var countDisplay = document.getElementById('display-text');
 var level;
+var count;
 var win;
 var lightUp;
 var playerCorrect;
@@ -19,6 +19,8 @@ var blueButton = document.getElementById('button-blue');
 var redButton = document.getElementById('button-red');
 var greenButton = document.getElementById('button-green');
 var yellowButton = document.getElementById('button-yellow');
+
+//Sounds
 var blueBeep = document.getElementById('blueBeep');
 var redBeep = document.getElementById('redBeep');
 var greenBeep = document.getElementById('greenBeep');
@@ -33,6 +35,8 @@ onToggle.addEventListener('click', function () {
         countDisplay.innerText = '--';
     } else if (on) {
         on = false;
+        strict = false;
+        strictButton.style.background = '#e7ea09';
         document.getElementById('button-on').style.visibility = 'hidden';
         document.getElementById('button-off').style.visibility = 'visible';
         countDisplay.innerText = '';
@@ -43,9 +47,9 @@ onToggle.addEventListener('click', function () {
 
 //Strict button
 strictButton.addEventListener('click', function() {
-    if (!strict) {
+    if (!strict && on) {
         strict = true;
-        strictButton.style.background = '#0d9e1f';
+        strictButton.style.background = '#0bd224';
     } else if (strict) {
         strict = false;
         strictButton.style.background = '#e7ea09';
@@ -71,7 +75,11 @@ startButton.addEventListener('click', function() {
     }
 })
 
-//Game play function
+//Game play function. Count is introduced as a variable that starts at 0 and is used to loop through the array that has been 
+//randomly generated, telling the game which light to flash depending on what the number is at that part of the array. 
+//Count will increase with each interval until it is the same as the level the player is on as this is how far through the random
+//array the player is. It is used to count the light flashes and make sure they match the number in the array for if it is the 
+//first, second, third, and so on, flash in the sequence.
 function playGame() {
     playerCorrect = true;
     lightUp = setInterval(function() {
@@ -96,7 +104,7 @@ function playGame() {
     }, 1200)
 }
 
-//Clear flashed light
+//Clear flashed lights back to original colours
 function resetLights() {
     blueButton.style.background = '#2136d2';
     redButton.style.background =  '#e60303';
@@ -104,6 +112,7 @@ function resetLights() {
     yellowButton.style.background = '#e7ea09';
 }
 
+//When count reaches the same as the level number, this function stops the interval from continuing to loop through the array
 function player() {
     clearInterval(lightUp);
     playerTurn =  true;
@@ -151,7 +160,7 @@ yellowButton.addEventListener('click', function() {
     }
 });
 
-//Checking to see if player is correct/incorrect/won
+//Checking to see if player is correct/incorrect/won and also what to do if strict mode is on or off
 function levelCheck() {
     console.log(playerArray)
     if (playerArray[playerArray.length - 1] !== compArray[playerArray.length - 1]) {
@@ -173,22 +182,19 @@ function levelCheck() {
 }
 
 function incorrect() {
-    if (!strict) {
-        playerArray = [];
-        playerTurn = false;
-        countDisplay.innerText = level;
-        playGame()
-    }
+    playerArray = [];
+    playerTurn = false;
     if (strict) {
-        playerArray = [];
         compArray = [];
         for (i = 0; i < 5; i++) {
             compArray.push(Math.floor(Math.random() * 4) + 1)
         }
-        playerTurn = false;
         level = 1;
-        countDisplay.innerText = level;
+        countDisplay.innerText = 1;
         playGame();
+    } else {
+        playGame();
+        countDisplay.innerText = level;
     }
 }
 
