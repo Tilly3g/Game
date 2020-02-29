@@ -131,3 +131,13 @@ In order to deploy the game locally you would need to go to the GitHub repositor
 and copy the link that it gives you. Next go to your terminal, enter the directory you wish to clone it to using the cd 
 command and then type git clone and paste in the link you just copied. You can then enter the website directory again 
 using the cd command and ls will bring up a list of the files. These can then be opened in your choice of editor.
+
+## Credits
+
+### Content
+- The HTML used for the full page background was copied from [CSS-TRICKS, article ‘Perfect Full Page Background Image'](https://css-tricks.com/perfect-full-page-background-image/).
+- I found information on a lot of the javascript used in this project from [w3schools.com](https://www.w3schools.com/)
+- I found how to generate a random whole number specifically from [w3schools.com](https://www.w3schools.com/js/js_random.asp)
+
+### Media
+- The background photo for this game was obtained from 
