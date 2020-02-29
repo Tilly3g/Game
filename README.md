@@ -54,7 +54,7 @@ the user got incorrect.
 off which will clear the lights and display, or press start, which will clear the lights, change the display to '1' and start the 
 game from the beginning.
 
-I created an initial wireframe for the project using [Lucid Chart](https://www.lucidchart.com/pages/home) which is linked [here](assets/wire-frame/bakery_website.pdf)
+I created an initial wireframe for the project using [Lucid Chart](https://www.lucidchart.com/pages/home) which is linked [here](https://www.lucidchart.com/invitations/accept/3b164574-fcd3-4db4-88b7-3d0f21b25316).
 
 ## Features
 
@@ -136,8 +136,16 @@ using the cd command and ls will bring up a list of the files. These can then be
 
 ### Content
 - The HTML used for the full page background was copied from [CSS-TRICKS, article ‘Perfect Full Page Background Image'](https://css-tricks.com/perfect-full-page-background-image/).
-- I found information on a lot of the javascript used in this project from [w3schools.com](https://www.w3schools.com/)
-- I found how to generate a random whole number specifically from [w3schools.com](https://www.w3schools.com/js/js_random.asp)
+- I found information on a lot of the javascript used in this project from [w3schools.com](https://www.w3schools.com/) and [stackoverflow](https://stackoverflow.com/).
+- I found how to generate a random whole number specifically from [w3schools.com](https://www.w3schools.com/js/js_random.asp).
+- I found inspiration for the look of my game and learned how it is supposed to work from [codepen](https://codepen.io/Em-Ant/full/QbRyqq/).
 
 ### Media
-- The background photo for this game was obtained from 
+- The background photo for this game was obtained from [needpix](https://www.needpix.com/photo/1160545/nature-green-the-cartoon-garden-a-fairy-tale-wallpaper-design-decoration-park).
+- The sounds were obtained from [aws](https://aws.amazon.com/), [sound1](https://s3.amazonaws.com/freecodecamp/simonSound1.mp3),
+[sound2](https://s3.amazonaws.com/freecodecamp/simonSound2.mp3), [sound3](https://s3.amazonaws.com/freecodecamp/simonSound3.mp3), and
+[sound4](https://s3.amazonaws.com/freecodecamp/simonSound4.mp3).
+
+### Acknowledgements
+- I would like to say thank you to my partner for helping me with inspiration and motivation throughout this project and also my 
+tutor with the Code Institute who helped me with where to start when I was feeling overwhelmed.
