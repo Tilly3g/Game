@@ -110,10 +110,24 @@ when the computers turn is over and it is their turn, clicking them at any other
     display and all the buttons will light up.
 
 Screensizes and Devices:
-- I tested the game to make sure it functioned correctly and displayed well on every device given using Chrome Developer Tools when viewing 
-  the site in a browser and also that it transitioned well when changing the screensize gradually from large to small.
-- I tested the game on a number of browsers including chrome and firefox to make sure it functioned as expected on all of them. 
-- I tested the game on different laptop types including Acer Chromebook, Dell Inspiron and a ThinkVision 4K external screen.
-- I tested 
-my site on a range of mobile devices with different screen sizes including Moto G6 Play, Samsung s7, Samsung s8, iPhone 5s, iPhone 6 and Huawei
-  y6.
+- I tested the game to make sure it functioned correctly and displayed well on every device given using Chrome 
+Developer Tools when viewing the site in a browser and also that it transitioned well when changing the screensize 
+gradually from large to small.
+- I tested the game on a number of browsers including chrome and firefox to make sure it functioned as expected on 
+all of them. 
+- I tested the game on different laptop types including Acer Chromebook, Dell Inspiron and a ThinkVision 4K external 
+screen.
+- I tested the game on a number of mobile devices to make sure it displayed correctly and worked as expected. These 
+included a Moto g6 play, Huawei p20, Samsung S7, iPhone 5s and a Samsung S8.
+
+## Deployment
+
+In order to deploy the Simon Game I navigated to my GitHub repository for the site. I clicked on settings in the top 
+right, scrolled down to the GitHub Pages section and changed Source to Master Branch. This then created the link to the 
+published website at https://tilly3g.github.io/Game/.
+
+
+In order to deploy the game locally you would need to go to the GitHub repository. You would then need to click download 
+and copy the link that it gives you. Next go to your terminal, enter the directory you wish to clone it to using the cd 
+command and then type git clone and paste in the link you just copied. You can then enter the website directory again 
+using the cd command and ls will bring up a list of the files. These can then be opened in your choice of editor.
