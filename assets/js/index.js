@@ -3,7 +3,7 @@ var on = false;
 var strict = false;
 var compArray = [];
 var playerArray = [];
-var playerTurn;
+var playerTurn = false;
 var countDisplay = document.getElementById('display-text');
 var level;
 var count;
@@ -82,6 +82,8 @@ startButton.addEventListener('click', function() {
 //first, second, third, and so on, flash in the sequence.
 function playGame() {
     playerCorrect = true;
+    playerArray = [];
+    playerTurn = false;
     lightUp = setInterval(function() {
         if (compArray[count] === 1) {
             blueButton.style.background = '#223cff';
@@ -165,6 +167,7 @@ function levelCheck() {
     console.log(playerArray)
     if (playerArray[playerArray.length - 1] !== compArray[playerArray.length - 1]) {
         playerCorrect = false;
+        playerTurn = false;
         countDisplay.innerText = '!';
         setTimeout(incorrect, 800);
     }
@@ -175,15 +178,12 @@ function levelCheck() {
     else if (playerArray.length === level && playerCorrect) {
         level++;
         countDisplay.innerText = level;
-        playerArray = [];
-        playerTurn = false;
         playGame();
     }
 }
 
 function incorrect() {
     playerArray = [];
-    playerTurn = false;
     if (strict) {
         compArray = [];
         for (i = 0; i < 5; i++) {

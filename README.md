@@ -56,3 +56,25 @@ game from the beginning.
 
 I created an initial wireframe for the project using [Lucid Chart](https://www.lucidchart.com/pages/home) which is linked [here](assets/wire-frame/bakery_website.pdf)
 
+## Features
+
+- On/Off toggle - allows user to switch the game on or off. When the game is switched off no other buttons can be pressed and the
+display is empty.
+- Start button - allows users to start the game at their convenience when the game is switched on. Pressing it during game play will also restart the game if
+desired.
+- Strict button - allows user to enable or disable strict whenever they desire when the game is switched on.
+- Four coloured game buttons - these will flash to show the sequence they need to be pressed in. The user can only click these 
+when the computers turn is over and it is their turn, clicking them at any other time will have no effect.
+
+## Technologies Used
+
+
+
+- [Google Fonts](https://fonts.google.com)
+    - To allow the use of a wider range of fonts.
+
+- HTML
+    - For the main elements
+
+- CSS
+    - To style the HTML
