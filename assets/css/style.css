@@ -150,10 +150,9 @@
 
 .game-container {
 	position: relative;
-	width: 460px;
-	height: 460px;
+	width: 380px;
+	height: 380px;
     border-radius: 50%;
-	margin:0 auto;
     margin-top: 5%;
     border: solid 1px #000000;
     background-color: #70533e;
@@ -161,20 +160,20 @@
 
 .game-button {
 	position:absolute;
-	width:200px;
-	height:200px;
-    margin: 20px;
+	width:165px;
+	height:165px;
+    margin: 18px;
 }
 
-#center {
+.button-section {
     position:absolute;
-	width:200px;
-	height:200px;
+	width:180px;
+	height:180px;
 	border-radius:50%;
-    top:130px;
-	left:130px;
+    top:100px;
+	left:100px;
     background-color: #ffffff;
-    border: 20px solid #70533e;
+    border: 10px solid #70533e;
 }
 
 #button-blue {
@@ -206,3 +205,24 @@
 }
 
 /*----------------------------------------------------------------------------------- Media queries ---*/
+
+@media(min-width: 576px) {
+    .game-container {
+        width:460px;
+	    height:460px;
+    }
+
+    .game-button {
+        width:200px;
+	    height:200px;
+        margin:20px;
+    }
+
+    .button-section {
+        width:200px;
+	    height:200px;
+        top:130px;
+	    left:130px;
+        border:20px solid #70533e;
+    }
+}
