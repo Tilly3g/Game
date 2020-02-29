@@ -52,7 +52,7 @@ strictButton.addEventListener('click', function() {
         strictButton.style.background = '#0bd224';
     } else if (strict) {
         strict = false;
-        strictButton.style.background = '#e7ea09';
+        strictButton.style.background = '#d1d416';
     }
 })
 
@@ -111,7 +111,7 @@ function resetLights() {
     blueButton.style.background = '#2136d2';
     redButton.style.background =  '#e60303';
     greenButton.style.background = '#0d9e1f';
-    yellowButton.style.background = '#e7ea09';
+    yellowButton.style.background = '#d1d416';
 }
 
 //When count reaches the same as the level number, this function stops the interval from continuing to loop through the array

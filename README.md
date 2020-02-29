@@ -68,13 +68,52 @@ when the computers turn is over and it is their turn, clicking them at any other
 
 ## Technologies Used
 
+- [Bootstrap](https://getbootstrap.com/)
+    - To allow the use of columns and pre-written layouts.
 
+- [jQuery](https://jquery.com/)
+    - To allow the use of certain pre-written functions.
 
 - [Google Fonts](https://fonts.google.com)
     - To allow the use of a wider range of fonts.
 
+- Javascript
+    - For the funcionality of the game.
+
 - HTML
-    - For the main elements
+    - For the design and background elements.
 
 - CSS
-    - To style the HTML
+    - To style the HTML.
+
+## testing
+
+1. On/Off toggle:
+    If this is off, none of the other buttons will work and it will clear the lights and stop gameplay if toggled
+    off when the game is running.
+2. Start button:
+    Pressing this button will start the game if it is on and will restart the game if pressed midway through. It
+    will also restart the game after the user has won.
+3. Strict button:
+    You can't enable this when the game is off but it can be enabled at any time and will change the game play 
+    so that it restarts from the beginning if the user gets it wrong when enabled.
+4. Four coloured buttons:
+    These can only be pressed when it is the players turn. Pressing them when the game isn't running or during 
+    the computers turn has no effect. There was an interesting bug where, if you clicked constantly during the 
+    players turn then it would make the computers turn loop continuously. I managed to fix this by clearing the 
+    playerArray and returning the playerTurn to false at the beginning of the playGame function.
+5. Game play:
+    If the user gets the sequence wrong, then the computer will replay the same sequence and the user can have 
+    another go. If strict mode is enabled and the user gets the sequence wrong then the game will restart from 
+    level one with a completely new sequence.
+    If the player reaches level 20 and gets this correct then they win the game and 'WIN' will show in the 
+    display and all the buttons will light up.
+
+Screensizes and Devices:
+- I tested the game to make sure it functioned correctly and displayed well on every device given using Chrome Developer Tools when viewing 
+  the site in a browser and also that it transitioned well when changing the screensize gradually from large to small.
+- I tested the game on a number of browsers including chrome and firefox to make sure it functioned as expected on all of them. 
+- I tested the game on different laptop types including Acer Chromebook, Dell Inspiron and a ThinkVision 4K external screen.
+- I tested 
+my site on a range of mobile devices with different screen sizes including Moto G6 Play, Samsung s7, Samsung s8, iPhone 5s, iPhone 6 and Huawei
+  y6.

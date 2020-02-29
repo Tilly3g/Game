@@ -95,7 +95,7 @@
     width: 25px;
     border-radius: 50%;
     border: solid 2px #000000;
-    background: #e7ea09;
+    background: #d1d416;
     margin-left: 26px;
 }
 
@@ -200,7 +200,7 @@
 #button-yellow {
 	bottom:0;
 	right:0;
-	background-color: #e7ea09;
+	background-color: #d1d416;
 	border-radius:0 0 100% 0 ;
 }
 
