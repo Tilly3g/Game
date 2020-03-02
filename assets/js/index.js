@@ -70,7 +70,6 @@ startButton.addEventListener('click', function() {
         for (i = 0; i < 20; i++) {
             compArray.push(Math.floor(Math.random() * 4) + 1)
         }
-    console.log(compArray);
     playGame();
     }
 })
@@ -164,7 +163,6 @@ yellowButton.addEventListener('click', function() {
 
 //Checking to see if player is correct/incorrect/won and also what to do if strict mode is on or off
 function levelCheck() {
-    console.log(playerArray)
     if (playerArray[playerArray.length - 1] !== compArray[playerArray.length - 1]) {
         playerCorrect = false;
         playerTurn = false;
