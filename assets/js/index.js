@@ -67,7 +67,7 @@ startButton.addEventListener('click', function() {
         level = 1;
         countDisplay.innerText = 1;
         count = 0;
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 20; i++) {
             compArray.push(Math.floor(Math.random() * 4) + 1)
         }
     console.log(compArray);
@@ -186,7 +186,7 @@ function incorrect() {
     playerArray = [];
     if (strict) {
         compArray = [];
-        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 20; i++) {
             compArray.push(Math.floor(Math.random() * 4) + 1)
         }
         level = 1;
