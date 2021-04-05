@@ -8,30 +8,9 @@ and then the user has to repeat them in the correct order.
 There is also a strict mode option. When strict mode is enabled, if the user presses the wrong coloured button and the sequence they have clicked doesn't match the computer sequence then the game will start again and go back to level one and a new random sequence will be generated. When strict mode is disabled, if the user gets the sequence wrong then the level will remain the same and the computer will play the same sequence again to remind the user and they can try again at the same stage after that.
 
 
-## Technologies Used
-
-- [Bootstrap](https://getbootstrap.com/)
-    - To allow the use of columns and pre-written layouts.
-
-- [jQuery](https://jquery.com/)
-    - To allow the use of certain pre-written functions.
-
-- [Google Fonts](https://fonts.google.com)
-    - To allow the use of a wider range of fonts.
-
-- Javascript
-    - For the funcionality of the game.
-
-- HTML
-    - For the design and background elements.
-
-- CSS
-    - To style the HTML.
-
-
 ## Deployment
 
-The website is deployed at https://tilly3g.github.io/Game/.
+The game is deployed at https://tilly3g.github.io/Game/.
 
 In order to deploy the game locally, click download and copy the link provided. Next go to your terminal and navigate to the desired directory, then use 'git clone' and paste in the link you just copied. This can then be opened in your choice of editor.
 
