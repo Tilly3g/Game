@@ -1,6 +1,6 @@
 # Simon Game
 
-This is a website where a user can go to play an online version of the Simon game.
+This is a website where a user can play an online version of the Simon game.
 
 The Simon game is a memory game where the computer will play a random sequence of light flashes, each with their own sound,
 and then the user has to repeat them in the correct order. 
@@ -11,8 +11,6 @@ There is also a strict mode option. When strict mode is enabled, if the user pre
 ## Deployment
 
 The game is deployed at https://tilly3g.github.io/Game/.
-
-In order to deploy the game locally, click download and copy the link provided. Next go to your terminal and navigate to the desired directory, then use 'git clone' and paste in the link you just copied. This can then be opened in your choice of editor.
 
 ## Credits
 
